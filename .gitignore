@@ -1,0 +1,84 @@
+# ================================================================= #
+#  Local Configuration and Environment Files
+# ================================================================= #
+# Never commit .env files with secrets!
+.env
+.env.*.local
+.env.local
+
+# ================================================================= #
+#  Dependencies and Caches
+# ================================================================= #
+# Log files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Build and linting tool caches
+.npm
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+.parcel-cache
+.cache/
+
+# ================================================================= #
+#  Build Outputs
+# ================================================================= #
+# TypeScript and other bundler build directories
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# ================================================================= #
+#  Reports and Coverage tests
+# ================================================================= #
+coverage/
+*.lcov
+.nyc_output
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ================================================================= #
+#  Operating System and IDEs
+# ================================================================= #
+# macOS and Windows system files
+.DS_Store
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# ================================================================= #
+#  Miscellaneous
+# ================================================================= #
+# Output do 'npm pack'
+*.tgz
+
+# Runtime
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Prisma
+prisma/
+
+# Project
+deploy-api/
+nssm.exe
+generate-headers.js
+generate-deploy.sh
+*.ps1
+*.bat
+*.cmd

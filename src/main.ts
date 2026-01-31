@@ -1,0 +1,24 @@
+import { ConfigService } from '@nestjs/config';
+import { NestFactory } from '@nestjs/core';
+import { useContainer } from 'class-validator';
+import { AppModule } from './app.module';
+import { GqlHttpExceptionFilter } from './common/pipes/gql-exception.pipe';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  const configService = app.get(ConfigService);
+  // const hmacAuthGuard = app.get(HmacAuthGuard);
+
+  const port = configService.get<number>('SERVER_PORT') || 3000;
+
+  useContainer(app.select(AppModule), { fallbackOnErrors: true });
+
+  // app.useGlobalGuards(hmacAuthGuard);
+  app.useGlobalFilters(new GqlHttpExceptionFilter());
+  // app.useGlobalPipes(new LoggingValidationPipe());
+  app.enableShutdownHooks();
+
+  await app.listen(port, '0.0.0.0');
+}
+bootstrap();
